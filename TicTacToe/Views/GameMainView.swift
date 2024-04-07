@@ -14,8 +14,8 @@ class GameMainView: UIView {
     private let turnLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Turn: X"
         label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        label.text = " "
         label.textAlignment = .center
         return label
     }()
@@ -45,7 +45,6 @@ class GameMainView: UIView {
         setupSubviews()
         setupCollectionView()
         setupConstraints()
-        textTurn()
     }
     
     required init?(coder: NSCoder) {
@@ -84,11 +83,13 @@ class GameMainView: UIView {
     }
     
     func textTurn() {
-        guard let turnText = gameState?.turnText() else { return }
-        turnLabel.text = turnText
+        turnLabel.text = gameState?.turnText()
+        turnLabel.textColor = gameState?.turnColor()
     }
     
     func reloadCollection() {
+        turnLabel.text = gameState?.turnText()
+        turnLabel.textColor = gameState?.turnColor()
         collectionView.reloadData()
     }
 }

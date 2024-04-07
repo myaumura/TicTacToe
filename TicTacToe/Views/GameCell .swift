@@ -14,7 +14,7 @@ final class GameCell: UICollectionViewCell {
     let label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 40, weight: .bold)
+        label.font = .systemFont(ofSize: 60, weight: .bold)
         label.text = ""
         return label
     }()

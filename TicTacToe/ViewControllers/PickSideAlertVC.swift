@@ -1,5 +1,5 @@
 //
-//  AlertVC.swift
+//  PickSideAlertVC.swift
 //  TicTacToe
 //
 //  Created by Kirill Gusev on 07.04.2024.
@@ -7,13 +7,14 @@
 
 import UIKit
 
-protocol AlertVCDelegate: AnyObject {
-    func reloadData()
+protocol PickSideAlertVCDelegate: AnyObject {
+    func startWithX()
+    func startWithO()
 }
 
-class AlertVC: UIViewController {
-    
-    weak var delegate: AlertVCDelegate?
+class PickSideAlertVC: UIViewController {
+
+    weak var delegate: PickSideAlertVCDelegate?
     
     private let containerView = UIView()
     
@@ -52,29 +53,64 @@ class AlertVC: UIViewController {
         return button
     }()
     
+    let firstActionButton: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = 10
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 60, weight: .bold)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .systemPink
+        button.setTitle("OK", for: .normal)
+        return button
+    }()
+    
+    let secondActionButton: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = 10
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 60, weight: .bold)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .systemPink
+        button.setTitle("OK", for: .normal)
+        return button
+    }()
+    
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    
     var alertTitle: String?
     var message: String?
     var buttonTitle: String?
+    var firstButtonTitle: String?
+    var secondButtonTitle: String?
     
     let padding: CGFloat = 20
     
-    init(title: String, message: String, buttonTitle: String){
+    init(title: String, message: String, firstButtonTitle: String, secondButtonTitle: String) {
         super.init(nibName: nil, bundle: nil)
         self.alertTitle = title
         self.message = message
-        self.buttonTitle = buttonTitle
+        self.firstButtonTitle = firstButtonTitle
+        self.secondButtonTitle = secondButtonTitle
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
         configureContainerView()
         configureTitleLabel()
-        configureActionButton()
+        configureTwoActionButtons()
         configureMessageLabel()
     }
     
@@ -106,20 +142,26 @@ class AlertVC: UIViewController {
         ])
     }
     
-    func configureActionButton() {
-        view.addSubview(actionButton)
-        actionButton.setTitle(buttonTitle ?? "Ok", for: .normal)
-        actionButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
+    func configureTwoActionButtons() {
+        
+        view.addSubview(stackView)
+        
+        stackView.addArrangedSubview(firstActionButton)
+        stackView.addArrangedSubview(secondActionButton)
+        firstActionButton.setTitle(firstButtonTitle, for: .normal)
+        firstActionButton.addTarget(self, action: #selector(chooseX), for: .touchUpInside)
+        
+        secondActionButton.setTitle(secondButtonTitle, for: .normal)
+        secondActionButton.addTarget(self, action: #selector(chooseO), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-            actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -padding),
-            actionButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor,constant: padding),
-            actionButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
-            actionButton.heightAnchor.constraint(equalToConstant: 44),
-            
+            stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -padding),
+            stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor,constant: padding),
+            stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
+            stackView.heightAnchor.constraint(equalToConstant: 88),
         ])
     }
-
+    
     func configureMessageLabel() {
         containerView.addSubview(messageLabel)
         messageLabel.text = message
@@ -129,12 +171,17 @@ class AlertVC: UIViewController {
             messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
             messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
-            messageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -12)
+            messageLabel.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -12)
         ])
     }
     
-    @objc func dismissVC() {
-        delegate?.reloadData()
+    @objc func chooseX() {
+        delegate?.startWithX()
+        dismiss(animated: true)
+    }
+    
+    @objc func chooseO() {
+        delegate?.startWithO()
         dismiss(animated: true)
     }
 }

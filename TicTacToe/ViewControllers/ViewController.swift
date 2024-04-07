@@ -19,6 +19,7 @@ class ViewController: UIViewController, GameStateDelegate, AlertVCDelegate {
         gameView.configure(with: gameState)
         addSubviews()
         setupConstraints()
+        presentAlertOnMainThread(title: "Choose the side!", message: "You need to peek the side!", firstButtonTitle: "X", secondButtonTitle: "O")
     }
     
     private func addSubviews() {
@@ -52,5 +53,28 @@ class ViewController: UIViewController, GameStateDelegate, AlertVCDelegate {
             self.present(alertVC, animated: true)
         }
     }
+    
+    func presentAlertOnMainThread(title: String, message: String, firstButtonTitle: String, secondButtonTitle: String) {
+        DispatchQueue.main.async {
+            let alertVC = PickSideAlertVC(title: title, message: message, firstButtonTitle: firstButtonTitle, secondButtonTitle: secondButtonTitle)
+            alertVC.delegate = self
+            alertVC.modalPresentationStyle = .overFullScreen
+            alertVC.modalTransitionStyle = .crossDissolve
+            self.present(alertVC, animated: true)
+        }
+    }
 }
 
+// MARK: - PickSideAlertVCDelegate
+
+extension ViewController: PickSideAlertVCDelegate {
+    func startWithX() {
+        gameState.startGameWithX()
+        gameView.textTurn()
+    }
+    
+    func startWithO() {
+        gameState.startGameWithO()
+        gameView.textTurn()
+    }
+}

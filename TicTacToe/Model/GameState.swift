@@ -21,9 +21,19 @@ final class GameState {
     private var crossScore = 0
     private var drawScore = 0
     var alertMessage = "Draw"
+    var firstTurnO = false
     
     init () {
         resetBoard()
+    }
+    
+    func startGameWithX() {
+        turn = Tile.Cross
+    }
+    
+    func startGameWithO() {
+        turn = Tile.Nought
+        firstTurnO = true
     }
     
     func placeTile(row: Int, column: Int) {
@@ -141,6 +151,10 @@ final class GameState {
             newBoard.append(row)
         }
         board = newBoard
-        turn = Tile.Cross
+        if firstTurnO == true {
+            turn = Tile.Nought
+        } else {
+            turn = Tile.Cross
+        }
     }
 }
