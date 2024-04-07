@@ -10,15 +10,19 @@ import UIKit
 class ViewController: UIViewController, GameStateDelegate {
     
     private var gameState = GameState()
-    private var gameView = GameView()
+    private var gameView = GameMainView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         gameState.delegate = self
         gameView.configure(with: gameState)
-        view.addSubview(gameView)
+        addSubviews()
         setupConstraints()
+    }
+    
+    private func addSubviews() {
+        view.addSubview(gameView)
     }
     
     func showAlert(alertMessage: String) {
@@ -27,10 +31,10 @@ class ViewController: UIViewController, GameStateDelegate {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            gameView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            gameView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 75),
-            gameView.heightAnchor.constraint(equalToConstant: 375),
-            gameView.widthAnchor.constraint(equalToConstant: 375)
+            gameView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            gameView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            gameView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            gameView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     

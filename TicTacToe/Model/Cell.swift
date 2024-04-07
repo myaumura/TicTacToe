@@ -8,7 +8,6 @@
 import UIKit
 
 struct Cell {
-    
     var tile: Tile?
     
     func displayTile() -> String {
@@ -32,7 +31,6 @@ struct Cell {
             return UIColor.black
         }
     }
-    
 }
 
 enum Tile {

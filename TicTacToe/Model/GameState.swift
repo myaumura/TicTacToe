@@ -5,7 +5,7 @@
 //  Created by Kirill Gusev on 06.04.2024.
 //
 
-import Foundation
+import UIKit
 
 protocol GameStateDelegate: AnyObject {
     func showAlert(alertMessage: String)
@@ -17,9 +17,9 @@ final class GameState {
     
     public var board = [[Cell]]()
     public var turn = Tile.Cross
-    var noughtScore = 0
-    var crossScore = 0
-    var showAlert = false
+    private var noughtScore = 0
+    private var crossScore = 0
+    private var drawScore = 0
     var alertMessage = "Draw"
     
     init () {
@@ -57,6 +57,26 @@ final class GameState {
         delegate?.showAlert(alertMessage: message)
     }
     
+    func turnText() -> String {
+        return turn == Tile.Cross ? "Turn: X" : "Turn: O"
+    }
+    
+    func turnColor() -> UIColor {
+        return turn == Tile.Cross ? UIColor.black : UIColor.red
+    }
+    
+    func gameCrossScore() -> Int {
+        return crossScore
+    }
+    
+    func gameNoughtScore() -> Int {
+        return noughtScore
+    }
+    
+    func gameDrawScore() -> Int {
+        return drawScore
+    }
+    
     func checkVictory() -> Bool {
         
         if isTurnTile(0, 0) && isTurnTile(1, 0) && isTurnTile(2, 0) {
@@ -91,7 +111,7 @@ final class GameState {
             return true
         }
         
-       return false
+        return false
     }
     
     func checkDraw() -> Bool {
@@ -100,8 +120,12 @@ final class GameState {
                 if cell.tile == Tile.Empty {
                     return false
                 }
+                if checkVictory() {
+                    return false
+                }
             }
         }
+        drawScore += 1
         return true
     }
     
@@ -121,5 +145,6 @@ final class GameState {
             newBoard.append(row)
         }
         board = newBoard
+        turn = Tile.Cross
     }
 }
