@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97C4620C2BC2BCFE00B60436 /* GameCell .swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C4620B2BC2BCFE00B60436 /* GameCell .swift */; };
 		97CEAB3C2BC1A57100269094 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEAB3B2BC1A57100269094 /* AppDelegate.swift */; };
 		97CEAB3E2BC1A57100269094 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEAB3D2BC1A57100269094 /* SceneDelegate.swift */; };
 		97CEAB402BC1A57100269094 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEAB3F2BC1A57100269094 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		97C4620B2BC2BCFE00B60436 /* GameCell .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameCell .swift"; sourceTree = "<group>"; };
 		97CEAB382BC1A57100269094 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97CEAB3B2BC1A57100269094 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97CEAB3D2BC1A57100269094 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				97CEAB3D2BC1A57100269094 /* SceneDelegate.swift */,
 				97CEAB3F2BC1A57100269094 /* ViewController.swift */,
 				97CEAB4F2BC1B13A00269094 /* GameView.swift */,
+				97C4620B2BC2BCFE00B60436 /* GameCell .swift */,
 				97CEAB532BC1B54F00269094 /* GameState.swift */,
 				97CEAB512BC1B23C00269094 /* Cell.swift */,
 				97CEAB442BC1A57300269094 /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 				97CEAB402BC1A57100269094 /* ViewController.swift in Sources */,
 				97CEAB3C2BC1A57100269094 /* AppDelegate.swift in Sources */,
 				97CEAB522BC1B23C00269094 /* Cell.swift in Sources */,
+				97C4620C2BC2BCFE00B60436 /* GameCell .swift in Sources */,
 				97CEAB542BC1B54F00269094 /* GameState.swift in Sources */,
 				97CEAB502BC1B13A00269094 /* GameView.swift in Sources */,
 				97CEAB3E2BC1A57100269094 /* SceneDelegate.swift in Sources */,

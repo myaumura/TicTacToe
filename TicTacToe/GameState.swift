@@ -7,7 +7,13 @@
 
 import Foundation
 
+protocol GameStateDelegate: AnyObject {
+    func showAlert(alertMessage: String)
+}
+
 final class GameState {
+    
+    weak var delegate: GameStateDelegate?
     
     public var board = [[Cell]]()
     public var turn = Tile.Cross
@@ -34,16 +40,72 @@ final class GameState {
             } else {
                 noughtScore += 1
             }
+            let winner = turn == Tile.Cross ? "Crosses" : "Noughts"
+            alertMessage = winner + " Win!"
+            showAlert(message: alertMessage)
         } else {
             turn = turn == Tile.Cross ? Tile.Nought : Tile.Cross
         }
+        
+        if checkDraw() {
+            alertMessage = "Draw"
+            showAlert(message: alertMessage)
+        }
+    }
+    
+    func showAlert(message: String) {
+        delegate?.showAlert(alertMessage: message)
     }
     
     func checkVictory() -> Bool {
+        
+        if isTurnTile(0, 0) && isTurnTile(1, 0) && isTurnTile(2, 0) {
+            return true
+        }
+        
+        if isTurnTile(0, 1) && isTurnTile(1, 1) && isTurnTile(2, 1) {
+            return true
+        }
+        
+        if isTurnTile(0, 2) && isTurnTile(1, 2) && isTurnTile(2, 2) {
+            return true
+        }
+        
+        if isTurnTile(0, 0) && isTurnTile(0, 1) && isTurnTile(0, 2) {
+            return true
+        }
+        
+        if isTurnTile(1, 0) && isTurnTile(1, 1) && isTurnTile(1, 2) {
+            return true
+        }
+        
+        if isTurnTile(2, 0) && isTurnTile(2, 1) && isTurnTile(2, 2) {
+            return true
+        }
+        
+        if isTurnTile(0, 0) && isTurnTile(1, 1) && isTurnTile(2, 2) {
+            return true
+        }
+        
+        if isTurnTile(0, 2) && isTurnTile(1, 1) && isTurnTile(2, 0) {
+            return true
+        }
+        
        return false
     }
     
-    func isTurnTile(row: Int, column: Int) -> Bool {
+    func checkDraw() -> Bool {
+        for row in board {
+            for cell in row {
+                if cell.tile == Tile.Empty {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+    func isTurnTile(_ row: Int, _ column: Int) -> Bool {
         return board[row][column].tile == turn
     }
     
