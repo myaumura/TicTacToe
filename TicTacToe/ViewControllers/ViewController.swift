@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, GameStateDelegate {
+class ViewController: UIViewController, GameStateDelegate, AlertVCDelegate {
     
     private var gameState = GameState()
     private var gameView = GameMainView()
@@ -25,8 +25,13 @@ class ViewController: UIViewController, GameStateDelegate {
         view.addSubview(gameView)
     }
     
-    func showAlert(alertMessage: String) {
-        self.presentAlertOnMainThread(title: "", message: alertMessage, buttonTitle: "OK")
+    func showAlert(title:String, alertMessage: String) {
+        self.presentAlertOnMainThread(title: title, message: alertMessage, buttonTitle: "Let's play a new game!")
+    }
+    
+    func reloadData() {
+        gameState.resetBoard()
+        gameView.reloadCollection()
     }
     
     private func setupConstraints() {
@@ -40,15 +45,10 @@ class ViewController: UIViewController, GameStateDelegate {
     
     func presentAlertOnMainThread(title: String, message: String, buttonTitle: String) {
         DispatchQueue.main.async {
-            let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "OK", style: .default)
-            alertVC.addAction(okButton)
+            let alertVC = AlertVC(title: title, message: message, buttonTitle: buttonTitle)
+            alertVC.delegate = self
             alertVC.modalPresentationStyle = .overFullScreen
             alertVC.modalTransitionStyle = .crossDissolve
-            alertVC.dismiss(animated: true) { [weak self] in
-                self?.gameState.resetBoard()
-                self?.gameView.reloadCollection()
-            }
             self.present(alertVC, animated: true)
         }
     }

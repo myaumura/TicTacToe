@@ -8,7 +8,7 @@
 import UIKit
 
 protocol GameStateDelegate: AnyObject {
-    func showAlert(alertMessage: String)
+    func showAlert(title:String, alertMessage: String)
 }
 
 final class GameState {
@@ -42,19 +42,15 @@ final class GameState {
             }
             let winner = turn == Tile.Cross ? "Crosses" : "Noughts"
             alertMessage = winner + " Win!"
-            showAlert(message: alertMessage)
+            delegate?.showAlert(title: "Win!", alertMessage: alertMessage)
         } else {
             turn = turn == Tile.Cross ? Tile.Nought : Tile.Cross
         }
         
         if checkDraw() {
-            alertMessage = "Draw"
-            showAlert(message: alertMessage)
+            alertMessage = "It's a Draw"
+            delegate?.showAlert(title: "Draw!", alertMessage: alertMessage)
         }
-    }
-    
-    func showAlert(message: String) {
-        delegate?.showAlert(alertMessage: message)
     }
     
     func turnText() -> String {
