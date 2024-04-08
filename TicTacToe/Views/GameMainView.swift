@@ -25,7 +25,7 @@ class GameMainView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
         label.textAlignment = .center
-        label.text = "Cross: 0 Nought: 0 Draw: 0"
+        label.text = "Crosses: 0 Noughts: 0 Draw: 0"
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         return label
     }()
@@ -118,6 +118,6 @@ extension GameMainView: UICollectionViewDelegate, UICollectionViewDataSource, UI
         cell.configure(with: gameState, index: indexPath.row)
         turnLabel.text = gameState.turnText()
         turnLabel.textColor = gameState.turnColor()
-        scoreLabel.text = "Cross: " + "\(gameState.gameCrossScore()) " + "Noughts: " + "\(gameState.gameNoughtScore()) " + "Draw: " + "\(gameState.gameDrawScore())"
+        scoreLabel.text = "Crosses: " + "\(gameState.gameCrossScore()) " + "Noughts: " + "\(gameState.gameNoughtScore()) " + "Draw: " + "\(gameState.gameDrawScore())"
     }
 }

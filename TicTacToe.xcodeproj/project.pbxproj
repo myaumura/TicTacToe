@@ -11,6 +11,11 @@
 		97661AD82BC300BF0092EF85 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97661AD72BC300BF0092EF85 /* AlertVC.swift */; };
 		97661ADA2BC3288C0092EF85 /* PickSideAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97661AD92BC3288C0092EF85 /* PickSideAlertVC.swift */; };
 		97C4620C2BC2BCFE00B60436 /* GameCell .swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C4620B2BC2BCFE00B60436 /* GameCell .swift */; };
+		97CDAD5D2BC40914008D2F7B /* StartGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CDAD5C2BC40914008D2F7B /* StartGameVC.swift */; };
+		97CDAD5F2BC40BEB008D2F7B /* StartGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CDAD5E2BC40BEB008D2F7B /* StartGameView.swift */; };
+		97CDAD612BC481B0008D2F7B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CDAD602BC481B0008D2F7B /* Router.swift */; };
+		97CDAD652BC48BD3008D2F7B /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CDAD642BC48BD3008D2F7B /* StartPresenter.swift */; };
+		97CDAD672BC48F6E008D2F7B /* StartScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CDAD662BC48F6E008D2F7B /* StartScreenAssembly.swift */; };
 		97CEAB3C2BC1A57100269094 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEAB3B2BC1A57100269094 /* AppDelegate.swift */; };
 		97CEAB3E2BC1A57100269094 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEAB3D2BC1A57100269094 /* SceneDelegate.swift */; };
 		97CEAB402BC1A57100269094 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEAB3F2BC1A57100269094 /* ViewController.swift */; };
@@ -25,6 +30,11 @@
 		97661AD72BC300BF0092EF85 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
 		97661AD92BC3288C0092EF85 /* PickSideAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickSideAlertVC.swift; sourceTree = "<group>"; };
 		97C4620B2BC2BCFE00B60436 /* GameCell .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameCell .swift"; sourceTree = "<group>"; };
+		97CDAD5C2BC40914008D2F7B /* StartGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameVC.swift; sourceTree = "<group>"; };
+		97CDAD5E2BC40BEB008D2F7B /* StartGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameView.swift; sourceTree = "<group>"; };
+		97CDAD602BC481B0008D2F7B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		97CDAD642BC48BD3008D2F7B /* StartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
+		97CDAD662BC48F6E008D2F7B /* StartScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenAssembly.swift; sourceTree = "<group>"; };
 		97CEAB382BC1A57100269094 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97CEAB3B2BC1A57100269094 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97CEAB3D2BC1A57100269094 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +96,25 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		97CDAD682BC49541008D2F7B /* StartScreen */ = {
+			isa = PBXGroup;
+			children = (
+				97CDAD642BC48BD3008D2F7B /* StartPresenter.swift */,
+				97CDAD5E2BC40BEB008D2F7B /* StartGameView.swift */,
+				97CDAD5C2BC40914008D2F7B /* StartGameVC.swift */,
+				97CDAD662BC48F6E008D2F7B /* StartScreenAssembly.swift */,
+			);
+			path = StartScreen;
+			sourceTree = "<group>";
+		};
+		97CDAD692BC49553008D2F7B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				97CDAD602BC481B0008D2F7B /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		97CEAB2F2BC1A57100269094 = {
 			isa = PBXGroup;
 			children = (
@@ -106,9 +135,11 @@
 			isa = PBXGroup;
 			children = (
 				97661AD32BC2DE490092EF85 /* Resources */,
+				97CDAD692BC49553008D2F7B /* Router */,
 				97661AD42BC2DE600092EF85 /* Model */,
 				97661AD52BC2DE740092EF85 /* Views */,
 				97661AD62BC2DE8A0092EF85 /* ViewControllers */,
+				97CDAD682BC49541008D2F7B /* StartScreen */,
 				97CEAB492BC1A57300269094 /* Info.plist */,
 			);
 			path = TicTacToe;
@@ -187,12 +218,17 @@
 				97CEAB402BC1A57100269094 /* ViewController.swift in Sources */,
 				97661AD82BC300BF0092EF85 /* AlertVC.swift in Sources */,
 				97CEAB3C2BC1A57100269094 /* AppDelegate.swift in Sources */,
+				97CDAD652BC48BD3008D2F7B /* StartPresenter.swift in Sources */,
 				97CEAB522BC1B23C00269094 /* Cell.swift in Sources */,
+				97CDAD612BC481B0008D2F7B /* Router.swift in Sources */,
 				97C4620C2BC2BCFE00B60436 /* GameCell .swift in Sources */,
 				97CEAB542BC1B54F00269094 /* GameState.swift in Sources */,
+				97CDAD672BC48F6E008D2F7B /* StartScreenAssembly.swift in Sources */,
 				97CEAB3E2BC1A57100269094 /* SceneDelegate.swift in Sources */,
+				97CDAD5D2BC40914008D2F7B /* StartGameVC.swift in Sources */,
 				97661AD22BC2DC980092EF85 /* GameMainView.swift in Sources */,
 				97661ADA2BC3288C0092EF85 /* PickSideAlertVC.swift in Sources */,
+				97CDAD5F2BC40BEB008D2F7B /* StartGameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

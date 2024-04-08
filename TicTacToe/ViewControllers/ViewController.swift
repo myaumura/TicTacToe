@@ -19,6 +19,9 @@ class ViewController: UIViewController, GameStateDelegate, AlertVCDelegate {
         gameView.configure(with: gameState)
         addSubviews()
         setupConstraints()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
         presentAlertOnMainThread(title: "Choose the side!", message: "You need to peek the side!", firstButtonTitle: "X", secondButtonTitle: "O")
     }
     

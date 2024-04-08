@@ -11,6 +11,21 @@ protocol GameStateDelegate: AnyObject {
     func showAlert(title:String, alertMessage: String)
 }
 
+protocol GameStateProtocol {
+    func startGameWithX()
+    func startGameWithO()
+    func placeTile(row: Int, column: Int)
+    func resetBoard()
+    func turnText() -> String
+    func turnColor() -> UIColor
+    func gameCrossScore() -> Int
+    func gameNoughtScore() -> Int
+    func gameDrawScore() -> Int
+    func checkVictory() -> Bool
+    func checkDraw() -> Bool
+    func isTurnTile(_ row: Int, _ column: Int) -> Bool
+}
+
 final class GameState {
     
     weak var delegate: GameStateDelegate?
@@ -26,6 +41,9 @@ final class GameState {
     init () {
         resetBoard()
     }
+}
+
+extension GameState: GameStateProtocol {
     
     func startGameWithX() {
         turn = Tile.Cross
@@ -37,7 +55,6 @@ final class GameState {
     }
     
     func placeTile(row: Int, column: Int) {
-        
         if(board[row][column].tile != Tile.Empty) {
             return
         }
@@ -60,6 +77,25 @@ final class GameState {
         if checkDraw() {
             alertMessage = "It's a Draw"
             delegate?.showAlert(title: "Draw!", alertMessage: alertMessage)
+        }
+    }
+    
+    func resetBoard() {
+        var newBoard = [[Cell]]()
+        
+        for _ in 0...2 {
+            var row = [Cell]()
+            
+            for _ in 0...2 {
+                row.append(Cell(tile: Tile.Empty))
+            }
+            newBoard.append(row)
+        }
+        board = newBoard
+        if firstTurnO == true {
+            turn = Tile.Nought
+        } else {
+            turn = Tile.Cross
         }
     }
     
@@ -137,24 +173,5 @@ final class GameState {
     
     func isTurnTile(_ row: Int, _ column: Int) -> Bool {
         return board[row][column].tile == turn
-    }
-    
-    func resetBoard() {
-        var newBoard = [[Cell]]()
-        
-        for _ in 0...2 {
-            var row = [Cell]()
-            
-            for _ in 0...2 {
-                row.append(Cell(tile: Tile.Empty))
-            }
-            newBoard.append(row)
-        }
-        board = newBoard
-        if firstTurnO == true {
-            turn = Tile.Nought
-        } else {
-            turn = Tile.Cross
-        }
     }
 }
