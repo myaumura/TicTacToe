@@ -15,7 +15,7 @@ final class StartScreenAssembly {
         
         let controller = StartGameVC(dependencies: .init(presenter: presenter))
         
-        let targetController = ViewController()
+        let targetController = GameVC()
         
         router.setRootController(controller: controller)
         router.setTargetController(controller: targetController)

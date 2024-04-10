@@ -16,20 +16,24 @@ final class StartGameView: UIView {
     
     var startTheGame: (() -> Void)?
     
-    private let actionButton: UIButton = {
-        let button = UIButton()
-        button.layer.cornerRadius = 10
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .systemPink
-        button.setTitle("Start Game", for: .normal)
-        return button
+    private let titleLabel: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 35, weight: .bold)
+        label.text = "Tic Tac Toe"
+        label.textAlignment = .center
+        return label
     }()
+    
+    private let imageView = UIImageView(image: UIImage(named: "game_logo"))
+    
+    private let actionButton = AlertButton(backgroundColor: .systemPink, title: "Start Game")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
+        addSubviews()
+        setupConstraints()
         setupButton()
     }
     
@@ -42,13 +46,34 @@ final class StartGameView: UIView {
     }
 }
 
+// MARK: StartGameViewProtocol
+
 extension StartGameView: StartGameViewProtocol {
     func setupButton() {
-        addSubview(actionButton)
         actionButton.addTarget(self, action: #selector(startGame), for: .touchUpInside)
+    }
+}
+
+private extension StartGameView {
+    func addSubviews() {
+        addSubview(titleLabel)
+        addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(actionButton)
+    }
+    
+    func setupConstraints() {
         NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 50),
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            imageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50),
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 240),
+            imageView.widthAnchor.constraint(equalToConstant: 240),
+            
+            actionButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 50),
             actionButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            actionButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             actionButton.heightAnchor.constraint(equalToConstant: 50),
             actionButton.widthAnchor.constraint(equalToConstant: 150)
         ])

@@ -33,7 +33,7 @@ struct Cell {
     }
 }
 
-enum Tile {
+enum Tile { // tilestate
     case Nought
     case Cross
     case Empty

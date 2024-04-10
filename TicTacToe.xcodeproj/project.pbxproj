@@ -10,6 +10,7 @@
 		97661AD22BC2DC980092EF85 /* GameMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97661AD12BC2DC980092EF85 /* GameMainView.swift */; };
 		97661AD82BC300BF0092EF85 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97661AD72BC300BF0092EF85 /* AlertVC.swift */; };
 		97661ADA2BC3288C0092EF85 /* PickSideAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97661AD92BC3288C0092EF85 /* PickSideAlertVC.swift */; };
+		976DE3122BC52E580012273E /* AlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DE3112BC52E580012273E /* AlertButton.swift */; };
 		97C4620C2BC2BCFE00B60436 /* GameCell .swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C4620B2BC2BCFE00B60436 /* GameCell .swift */; };
 		97CDAD5D2BC40914008D2F7B /* StartGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CDAD5C2BC40914008D2F7B /* StartGameVC.swift */; };
 		97CDAD5F2BC40BEB008D2F7B /* StartGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CDAD5E2BC40BEB008D2F7B /* StartGameView.swift */; };
@@ -18,7 +19,7 @@
 		97CDAD672BC48F6E008D2F7B /* StartScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CDAD662BC48F6E008D2F7B /* StartScreenAssembly.swift */; };
 		97CEAB3C2BC1A57100269094 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEAB3B2BC1A57100269094 /* AppDelegate.swift */; };
 		97CEAB3E2BC1A57100269094 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEAB3D2BC1A57100269094 /* SceneDelegate.swift */; };
-		97CEAB402BC1A57100269094 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEAB3F2BC1A57100269094 /* ViewController.swift */; };
+		97CEAB402BC1A57100269094 /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEAB3F2BC1A57100269094 /* GameVC.swift */; };
 		97CEAB452BC1A57300269094 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97CEAB442BC1A57300269094 /* Assets.xcassets */; };
 		97CEAB482BC1A57300269094 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97CEAB462BC1A57300269094 /* LaunchScreen.storyboard */; };
 		97CEAB522BC1B23C00269094 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEAB512BC1B23C00269094 /* Cell.swift */; };
@@ -29,6 +30,7 @@
 		97661AD12BC2DC980092EF85 /* GameMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMainView.swift; sourceTree = "<group>"; };
 		97661AD72BC300BF0092EF85 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
 		97661AD92BC3288C0092EF85 /* PickSideAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickSideAlertVC.swift; sourceTree = "<group>"; };
+		976DE3112BC52E580012273E /* AlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButton.swift; sourceTree = "<group>"; };
 		97C4620B2BC2BCFE00B60436 /* GameCell .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameCell .swift"; sourceTree = "<group>"; };
 		97CDAD5C2BC40914008D2F7B /* StartGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameVC.swift; sourceTree = "<group>"; };
 		97CDAD5E2BC40BEB008D2F7B /* StartGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameView.swift; sourceTree = "<group>"; };
@@ -38,7 +40,7 @@
 		97CEAB382BC1A57100269094 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97CEAB3B2BC1A57100269094 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97CEAB3D2BC1A57100269094 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		97CEAB3F2BC1A57100269094 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		97CEAB3F2BC1A57100269094 /* GameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
 		97CEAB442BC1A57300269094 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97CEAB472BC1A57300269094 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97CEAB492BC1A57300269094 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				97661AD12BC2DC980092EF85 /* GameMainView.swift */,
 				97C4620B2BC2BCFE00B60436 /* GameCell .swift */,
+				976DE3112BC52E580012273E /* AlertButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -89,7 +92,7 @@
 		97661AD62BC2DE8A0092EF85 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				97CEAB3F2BC1A57100269094 /* ViewController.swift */,
+				97CEAB3F2BC1A57100269094 /* GameVC.swift */,
 				97661AD72BC300BF0092EF85 /* AlertVC.swift */,
 				97661AD92BC3288C0092EF85 /* PickSideAlertVC.swift */,
 			);
@@ -215,7 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97CEAB402BC1A57100269094 /* ViewController.swift in Sources */,
+				97CEAB402BC1A57100269094 /* GameVC.swift in Sources */,
 				97661AD82BC300BF0092EF85 /* AlertVC.swift in Sources */,
 				97CEAB3C2BC1A57100269094 /* AppDelegate.swift in Sources */,
 				97CDAD652BC48BD3008D2F7B /* StartPresenter.swift in Sources */,
@@ -229,6 +232,7 @@
 				97661AD22BC2DC980092EF85 /* GameMainView.swift in Sources */,
 				97661ADA2BC3288C0092EF85 /* PickSideAlertVC.swift in Sources */,
 				97CDAD5F2BC40BEB008D2F7B /* StartGameView.swift in Sources */,
+				976DE3122BC52E580012273E /* AlertButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
