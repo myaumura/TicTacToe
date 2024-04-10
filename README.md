@@ -5,4 +5,4 @@
 - Реализация паттерна MVP
 
 <h1>Demo</h1>
-![demo](https://raw.githubusercontent.com/myaumura/TicTacToe/48c2cd5de42c135e6b330af5d8e50986e1ae50d7/demo.mp4)
+![alt text](https://raw.githubusercontent.com/myaumura/TicTacToe/48c2cd5de42c135e6b330af5d8e50986e1ae50d7/demo.mp4)
